@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Uname:
+  = @member.uname
+%p
+  %b Dob:
+  = @member.dob
+%p
+  %b Gender:
+  = @member.gender
+%p
+  %b Contact:
+  = @member.contact
+%p
+  %b Email:
+  = @member.email
+%p
+  %b Mpass:
+  = @member.mpass
+%p
+  %b Cmpass:
+  = @member.cmpass
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path

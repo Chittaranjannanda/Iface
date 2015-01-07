@@ -1,0 +1,44 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", members_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_member_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      New Member
+      .inner
+        %table
+          %thead
+            %tr
+              %th Name
+              %th Uname
+              %th Dob
+              %th Gender
+              %th Contact
+              %th Email
+              %th Mpass
+              %th Cmpass
+              %th
+              %th
+              %th
+              
+          %tbody
+            - @members.each do |member|
+              %tr
+                %td= member.name
+                %td= member.uname
+                %td= member.dob
+                %td= member.gender
+                %td= member.contact
+                %td= member.email
+                %td= member.mpass
+                %td= member.cmpass
+                %td.last
+                  = link_to "#{t("web-app-theme.show", :default => "Show")}", member_path(member)
+                  |
+                  \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_member_path(member)} |
+                  \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", member_path(member), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

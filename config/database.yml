@@ -14,12 +14,11 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  password: nimbu
 
 development:
   <<: *default
-  database: iface_development
+  database: iface
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,5 +49,5 @@ test:
 production:
   <<: *default
   database: iface_production
-  username: iface
-  password: <%= ENV['IFACE_DATABASE_PASSWORD'] %>
+  username: root
+  password: nimbu
